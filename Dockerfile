@@ -11,5 +11,7 @@ USER root
 COPY --from=build ipfs_waiter /ipfs_waiter
 COPY entrypoint.sh /entrypoint.sh
 
+RUN chmod a+x /ipfs_waiter /entrypoint.sh
+
 ENTRYPOINT [ "/bin/sh" ]
 CMD [ "/entrypoint.sh" ]

@@ -31,9 +31,9 @@ runs:
   image: 'Dockerfile'
   env:
     UPLOAD_PATH: ${{ inputs.upload_path }}
-    REMOTE_SERVICE_NAME: ${{ inputs.remote }}
-    REMOTE_SERVICE_ENDPOINT: ${{ inputs.endpoint }}
-    REMOTE_SERVICE_KEY: ${{ inputs.access_token }}
+    REMOTE_SERVICE_NAME: ${{ inputs.remote_service_name }}
+    REMOTE_SERVICE_ENDPOINT: ${{ inputs.remote_service_endpoint }}
+    REMOTE_SERVICE_KEY: ${{ inputs.remote_service_key }}
     PUBLISH_KEY_NAME: ${{ inputs.publish_key_name }}
     PUBLISH_KEY_VALUE: ${{ inputs.publish_key_value }}
   

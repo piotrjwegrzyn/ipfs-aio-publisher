@@ -12,19 +12,18 @@ You can use this Action directly from your GitHub workflow. You can find the req
 on: [push]
 
 jobs:
-  pin_to_ipfs:
+  push_to_ipfs:
     runs-on: ubuntu-latest
-    name: Publish
+    name: Pin and publish
     steps:
-    - uses: actions/checkout@v2
     - name: IPFS Publish
       id: IPFS
-      uses: piotrjwegrzyn/ipfs-aio-publisher@v1.0.0
+      uses: piotrjwegrzyn/ipfs-aio-publisher@v1.1.0
       with: # all params are required
-        path_to_add: 'your/path/'
+        upload_path: 'your/path/'
         remote_service_name: ${{ secrets.REMOTE_SERVICE_NAME }}
         remote_service_endpoint: ${{ secrets.REMOTE_SERVICE_ENDPOINT }}
-        remote_service_endpoint: ${{ secrets.REMOTE_SERVICE_KEY }}
+        remote_service_key: ${{ secrets.REMOTE_SERVICE_KEY }}
         publish_key_name: ${{ secrets.PUBLISH_KEY_NAME }}
         publish_key_value: ${{ secrets.PUBLISH_KEY_VALUE }}
 ```
