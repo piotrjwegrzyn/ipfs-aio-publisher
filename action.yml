@@ -34,6 +34,7 @@ inputs:
   propagate_time:
     description: 'Additional time for IPFS daemon to propagate changes in network'
     required: false
+    default: 0
 outputs:
   cid:
     description: 'IPFS Content ID of the pinned file/directory'

@@ -43,10 +43,8 @@ if [ -n "$PUBLISH_KEY_NAME" ]; then
   fi
 fi
 
-if [[ -n "$PROPAGATE_TIME" ]]; then
-  echo "Additional sleep for $PROPAGATE_TIME secs (propagate time)"
-  sleep $PROPAGATE_TIME
-  echo "Done."
-fi
+echo "Additional sleep for $PROPAGATE_TIME secs (propagate time)"
+sleep $PROPAGATE_TIME
+echo "Done."
 
 echo "cid=$CID" >> $GITHUB_OUTPUT
