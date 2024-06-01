@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: IPFS Publish
       id: IPFS
-      uses: piotrjwegrzyn/ipfs-aio-publisher@v1.2.1
+      uses: piotrjwegrzyn/ipfs-aio-publisher@v1.2.2
       with:
         # required params:
         upload_path: 'your/path/'

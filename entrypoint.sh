@@ -43,7 +43,7 @@ if [ -n "$PUBLISH_KEY_NAME" ]; then
   fi
 fi
 
-if [[ $PROPAGATE_TIME =~ ^[1-9][0-9]*$ ]]; then
+if [[ -n "$PROPAGATE_TIME" ]]; then
   echo "Additional sleep for $PROPAGATE_TIME secs (propagate time)"
   sleep $PROPAGATE_TIME
   echo "Done."
