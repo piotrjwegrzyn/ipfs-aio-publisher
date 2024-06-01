@@ -10,19 +10,30 @@ inputs:
     required: true
   remote_service_name:
     description: 'Name of pinning service'
-    required: true
+    required: false
   remote_service_endpoint:
     description: 'API URL of pinning service'
-    required: true
+    required: false
   remote_service_key:
     description: 'Key/access token to pinning service'
-    required: true
+    required: false
+  remote_background:
+    description: 'Pin to pinning service in the background'
+    required: false
+    default: true
+  remote_unpin_old_cid:
+    description: "Unpin from pinning service previous CID (works only with publishing)"
+    required: false
+    default: false
   publish_key_name:
     description: 'IPNS key name'
-    required: true
+    required: false
   publish_key_value:
     description: 'IPNS key value (pem-pkcs8-cleartext format)'
-    required: true
+    required: false
+  propagate_time:
+    description: 'Additional time for IPFS daemon to propagate changes in network'
+    required: false
 outputs:
   cid:
     description: 'IPFS Content ID of the pinned file/directory'
@@ -30,10 +41,12 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    UPLOAD_PATH: ${{ inputs.upload_path }}
+    UPLOAD_PATH: ${{ inputs.upload_path }} # required
     REMOTE_SERVICE_NAME: ${{ inputs.remote_service_name }}
     REMOTE_SERVICE_ENDPOINT: ${{ inputs.remote_service_endpoint }}
     REMOTE_SERVICE_KEY: ${{ inputs.remote_service_key }}
+    REMOTE_BACKGROUND: ${{ inputs.remote_background }}
+    REMOTE_UNPIN_OLD_CID: ${{ inputs.remote_unpin_old_cid }}
     PUBLISH_KEY_NAME: ${{ inputs.publish_key_name }}
     PUBLISH_KEY_VALUE: ${{ inputs.publish_key_value }}
-  
+    PROPAGATE_TIME: ${{ inputs.propagate_time }}
